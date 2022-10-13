@@ -9,34 +9,49 @@ public class BinaryTree<T extends Comparable<T>> {
     public boolean isEmpty() {
         return this.root == null;
     }
-    public boolean contains(T element) {
-        return this.contains(element, this.root);
+    public void insert(T element,String occurence) {
+        this.root = this.insert(element,occurence, this.root);
     }
-    public void insert(T element) {
-        this.root = this.insert(element, this.root);
+    public void contains(T element) {
+        this.contains(element, this.root);
     }
-    private Node<T> insert(T element, Node<T> current) {
-        if (current == null)
-            return new Node<T>(element, null, null);
-
-        int compareResult = element.compareTo(current.element);
-        if (compareResult < 0)
-            current.left = this.insert(element, current.left);
-        else if (compareResult > 0)
-            current.right = this.insert(element, current.right);
-        return current;
+    private Node<T> insert(T element,String occurence, Node<T> current) {
+        if (current == null) {
+            return new Node<T>(element, occurence, null, null);
+        }
+        else{
+            int compareResult = element.compareTo(current.element);
+            if (compareResult < 0) {
+                current.left = this.insert(element, occurence, current.left);
+            }
+            else if (compareResult > 0) {
+                current.right = this.insert(element, occurence, current.right);
+            }
+            else {
+                current.getOccurencelist().addOccurence(occurence);
+            }
+            return current;
+        }
     }
-    private boolean contains(T element, Node<T> node) {
+    private void contains(T element, Node<T> node) {
         if (node == null) {
-            return false;
-        } else {
+            System.out.println("No hay palabras en el archivo");
+        }
+        else {
             int compareResult = element.compareTo(node.element);
-            if (compareResult < 0)
-                return contains(element, node.left);
-            else if (compareResult > 0)
-                return contains(element, node.right);
-            else
-                return true;
+            if (compareResult < 0) {
+                this.contains(element, node.left);
+            }
+            else if (compareResult > 0){
+                this.contains(element, node.right);
+            }
+            else {
+                OccurenceNode current = node.getOccurencelist().getHead();
+                while (current != null) {
+                    System.out.println(current.getOccurence());
+                    current = current.getNext();
+                }
+            }
         }
     }
     public Node<T> getRoot(){
