@@ -6,5 +6,7 @@ public class Application {
         A.insert("Hola,","Hola, como estas");
         A.insert("Hola","Hola es un gusto");
         A.contains("Hola");
+
+        //Prueba
     }
 }

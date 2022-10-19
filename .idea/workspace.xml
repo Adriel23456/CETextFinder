@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7be6e4b3-e755-41ab-a677-5b01c02d1028" name="Changes" comment="Principio del Proyecto#2" />
+    <list default="true" id="7be6e4b3-e755-41ab-a677-5b01c02d1028" name="Changes" comment="Principio del Proyecto#2">
+      <change beforePath="$PROJECT_DIR$/src/main/java/CETextFinder/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CETextFinder/Application.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -29,14 +31,14 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "nodejs_package_manager_path": "npm"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;
   }
-}]]></component>
+}</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -46,6 +48,7 @@
       <option name="presentableId" value="Default" />
       <updated>1665019852135</updated>
       <workItem from="1665019853415" duration="400000" />
+      <workItem from="1666149320227" duration="51000" />
     </task>
     <task id="LOCAL-00001" summary="Principio del Proyecto#2">
       <created>1665019961791</created>
