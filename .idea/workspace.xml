@@ -5,21 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7be6e4b3-e755-41ab-a677-5b01c02d1028" name="Changes" comment="Prueba del funcionamiento de GitHub">
-      <change afterPath="$PROJECT_DIR$/src/main/java/CETextFinder/EstructurasDeDatos/ListasEnlazadas/DoubleLinkedList.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/CETextFinder/EstructurasDeDatos/ListasEnlazadas/Node.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/CETextFinder/InterfazGrafica/Tabbedpane/Controller_Tabbedpane.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/CETextFinder/InterfazGrafica/Tabbedpane/Model_Tabbedpane.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/CETextFinder/InterfazGrafica/Tabbedpane/View_Tabbedpane.form" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/CETextFinder/InterfazGrafica/Tabbedpane/View_Tabbedpane.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/CETextFinder/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/CETextFinder/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/CETextFinder/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/CETextFinder/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/CETextFinder/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CETextFinder/Application.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/CETextFinder/BinaryTree.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CETextFinder/EstructurasDeDatos/ArbolBinario/BinaryTree.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/CETextFinder/Node.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CETextFinder/EstructurasDeDatos/ArbolBinario/Node.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/CETextFinder/OccurenceList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CETextFinder/EstructurasDeDatos/ArbolBinario/OccurenceList.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/CETextFinder/OccurenceNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CETextFinder/EstructurasDeDatos/ArbolBinario/OccurenceNode.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/CETextFinder/InterfazGrafica/VentanaPrincipal/Controller_VentanaPrincipal.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/CETextFinder/InterfazGrafica/VentanaPrincipal/Model_VentanaPrincipal.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/CETextFinder/InterfazGrafica/VentanaResultado/Controller_VentanaResultado.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/CETextFinder/InterfazGrafica/VentanaResultado/Model_VentanaResultado.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,15 +34,15 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/Adriel/Desktop/Informacion-de-Prioridad/TEC/2022/Semestre II/Algoritmos y Estructuras de Datos 1/Proyectos o Examenes/Proyecto #2/Proyecto/src/main/java/CETextFinder/InterfazGrafica",
-    "nodejs_package_manager_path": "npm"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Adriel/Desktop/Informacion-de-Prioridad/TEC/2022/Semestre II/Algoritmos y Estructuras de Datos 1/Proyectos o Examenes/Proyecto #2/Proyecto/src/main/java/CETextFinder/InterfazGrafica&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;
   }
-}]]></component>
+}</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -64,6 +53,7 @@
       <updated>1665019852135</updated>
       <workItem from="1665019853415" duration="400000" />
       <workItem from="1666149320227" duration="367000" />
+      <workItem from="1666150134819" duration="127000" />
     </task>
     <task id="LOCAL-00001" summary="Principio del Proyecto#2">
       <created>1665019961791</created>
