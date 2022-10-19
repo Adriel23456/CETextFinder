@@ -1,4 +1,4 @@
-package CETextFinder;
+package CETextFinder.EstructurasDeDatos.ArbolBinario;
 
 public class OccurenceList {
         private OccurenceNode head;

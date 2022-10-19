@@ -1,4 +1,4 @@
-package CETextFinder;
+package CETextFinder.EstructurasDeDatos.ArbolBinario;
 
 public class Node<T extends Comparable<T>> {
     T element;

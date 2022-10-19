@@ -1,4 +1,4 @@
-package CETextFinder;
+package CETextFinder.EstructurasDeDatos.ArbolBinario;
 
 public class OccurenceNode {
     private String occurence;

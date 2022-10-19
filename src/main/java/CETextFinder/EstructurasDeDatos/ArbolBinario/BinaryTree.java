@@ -1,4 +1,4 @@
-package CETextFinder;
+package CETextFinder.EstructurasDeDatos.ArbolBinario;
 
 public class BinaryTree<T extends Comparable<T>> {
     private Node<T> root;
