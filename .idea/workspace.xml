@@ -5,10 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7be6e4b3-e755-41ab-a677-5b01c02d1028" name="Changes" comment="Prueba del funcionamiento de GitHub">
-      <change afterPath="$PROJECT_DIR$/src/main/java/CETextFinder/InterfazGrafica/VentanaPrincipal/Controller_VentanaPrincipal.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/CETextFinder/InterfazGrafica/VentanaPrincipal/Model_VentanaPrincipal.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/CETextFinder/InterfazGrafica/VentanaResultado/Controller_VentanaResultado.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/CETextFinder/InterfazGrafica/VentanaResultado/Model_VentanaResultado.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/CETextFinder/EstructurasDeDatos/ArbolBinario/AVLBinaryTree.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/CETextFinder/EstructurasDeDatos/ArbolBinario/AVLNode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/CETextFinder/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CETextFinder/Application.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/CETextFinder/EstructurasDeDatos/ArbolBinario/BinaryTree.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CETextFinder/EstructurasDeDatos/ArbolBinario/BinaryTree.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/CETextFinder/EstructurasDeDatos/ListasEnlazadas/Node.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CETextFinder/EstructurasDeDatos/ListasEnlazadas/Node.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,10 +41,30 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Adriel/Desktop/Informacion-de-Prioridad/TEC/2022/Semestre II/Algoritmos y Estructuras de Datos 1/Proyectos o Examenes/Proyecto #2/Proyecto/src/main/java/CETextFinder/InterfazGrafica&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Jose Maria Vindas/Documents/GitHub/CETextFinder&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;
   }
 }</component>
+  <component name="RunManager">
+    <configuration name="Application" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="CETextFinder.Application" />
+      <module name="CETextFinder" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="CETextFinder.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Application" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">

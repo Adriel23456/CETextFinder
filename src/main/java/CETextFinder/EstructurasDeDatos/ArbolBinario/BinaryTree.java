@@ -54,7 +54,4 @@ public class BinaryTree<T extends Comparable<T>> {
             }
         }
     }
-    public Node<T> getRoot(){
-        return this.root;
-    }
 }

@@ -6,9 +6,9 @@ package CETextFinder.EstructurasDeDatos.ListasEnlazadas;
  * @author Adriel
  */
 public class Node<T>{
-    private T data;
-    private Node<T> next;
-    private Node<T> previous;
+     private T data;
+     private Node<T> next;
+     private Node<T> previous;
 
     /**
      * Se especifica el constructor de esta clase
