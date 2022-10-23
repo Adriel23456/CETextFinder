@@ -5,12 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7be6e4b3-e755-41ab-a677-5b01c02d1028" name="Changes" comment="Prueba del funcionamiento de GitHub">
-      <change afterPath="$PROJECT_DIR$/src/main/java/CETextFinder/EstructurasDeDatos/ArbolBinario/AVLBinaryTree.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/CETextFinder/EstructurasDeDatos/ArbolBinario/AVLNode.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/CETextFinder/DatoSocket.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/CETextFinder/Server.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/CETextFinder/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CETextFinder/Application.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/CETextFinder/EstructurasDeDatos/ArbolBinario/BinaryTree.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CETextFinder/EstructurasDeDatos/ArbolBinario/BinaryTree.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/CETextFinder/EstructurasDeDatos/ListasEnlazadas/Node.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CETextFinder/EstructurasDeDatos/ListasEnlazadas/Node.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
