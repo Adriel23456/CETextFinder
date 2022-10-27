@@ -6,10 +6,10 @@ import java.net.ServerSocket;
 import java.net.Socket;
 
 public class Server {
-
+/*
     public static void main (String [] args)
     {
-        new Server();
+        //new Server();
     }
     public Server()
     {
@@ -47,4 +47,6 @@ public class Server {
             e.printStackTrace();
         }
     }
+    }
+ */
 }
