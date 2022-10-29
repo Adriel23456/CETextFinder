@@ -7,9 +7,6 @@
     <list default="true" id="7be6e4b3-e755-41ab-a677-5b01c02d1028" name="Changes" comment="Prueba del funcionamiento de GitHub">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/CETextFinder/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CETextFinder/Application.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/CETextFinder/EstructurasDeDatos/ArbolBinario/BinaryTree.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CETextFinder/EstructurasDeDatos/ArbolBinario/BinaryTree.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/CETextFinder/EstructurasDeDatos/ArbolBinario/Node.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CETextFinder/EstructurasDeDatos/ArbolBinario/NodeTree.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/CETextFinder/EstructurasDeDatos/ArbolBinario/OccurenceNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CETextFinder/EstructurasDeDatos/ArbolBinario/OccurenceNode.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -131,7 +128,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/CETextFinder/Application.java</url>
-          <line>330</line>
+          <line>339</line>
           <properties class="CETextFinder.Application" method="countSort">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
