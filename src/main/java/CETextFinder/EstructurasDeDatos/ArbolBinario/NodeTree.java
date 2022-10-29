@@ -1,11 +1,11 @@
 package CETextFinder.EstructurasDeDatos.ArbolBinario;
 
-public class Node<T extends Comparable<T>> {
+public class NodeTree<T extends Comparable<T>> {
     T element;
     OccurenceList list;
-    Node<T> left;
-    Node<T> right;
-    public Node(T element,String occurence, Node<T> left, Node<T> right) {
+    NodeTree<T> left;
+    NodeTree<T> right;
+    public NodeTree(T element,String occurence, NodeTree<T> left, NodeTree<T> right) {
         this.element = element;
         this.left = left;
         this.right = right;

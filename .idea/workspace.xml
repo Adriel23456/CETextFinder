@@ -7,9 +7,9 @@
     <list default="true" id="7be6e4b3-e755-41ab-a677-5b01c02d1028" name="Changes" comment="Prueba del funcionamiento de GitHub">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/CETextFinder/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CETextFinder/Application.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/CETextFinder/EstructurasDeDatos/ArbolBinario/OccurenceList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CETextFinder/EstructurasDeDatos/ArbolBinario/OccurenceList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/CETextFinder/EstructurasDeDatos/ArbolBinario/BinaryTree.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CETextFinder/EstructurasDeDatos/ArbolBinario/BinaryTree.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/CETextFinder/EstructurasDeDatos/ArbolBinario/Node.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CETextFinder/EstructurasDeDatos/ArbolBinario/NodeTree.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/CETextFinder/EstructurasDeDatos/ArbolBinario/OccurenceNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CETextFinder/EstructurasDeDatos/ArbolBinario/OccurenceNode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/CETextFinder/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CETextFinder/Server.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,15 +35,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Jose Maria Vindas/Documents/GitHub/CETextFinder&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Downloaded.Files.Path.Enabled": "false",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/Users/Jose Maria Vindas/Documents/GitHub/CETextFinder",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Libraries",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2"
   }
-}</component>
+}]]></component>
   <component name="RunManager">
     <configuration name="Application" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="CETextFinder.Application" />
@@ -124,7 +131,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/CETextFinder/Application.java</url>
-          <line>145</line>
+          <line>330</line>
           <properties class="CETextFinder.Application" method="countSort">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />

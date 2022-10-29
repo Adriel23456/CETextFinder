@@ -1,7 +1,7 @@
 package CETextFinder.EstructurasDeDatos.ArbolBinario;
 
 public class BinaryTree<T extends Comparable<T>> {
-    private Node<T> root;
+    private NodeTree<T> root;
 
     public BinaryTree() {
         this.root = null;
@@ -12,12 +12,12 @@ public class BinaryTree<T extends Comparable<T>> {
     public void insert(T element,String occurence) {
         this.root = this.insert(element,occurence, this.root);
     }
-    public void contains(T element) {
-        this.contains(element, this.root);
+    public OccurenceNode contains(T element) {
+        return contains(element, this.root);
     }
-    private Node<T> insert(T element,String occurence, Node<T> current) {
+    private NodeTree<T> insert(T element,String occurence, NodeTree<T> current) {
         if (current == null) {
-            return new Node<T>(element, occurence, null, null);
+            return new NodeTree(element, occurence, null, null);
         }
         else{
             int compareResult = element.compareTo(current.element);
@@ -33,25 +33,21 @@ public class BinaryTree<T extends Comparable<T>> {
             return current;
         }
     }
-    private void contains(T element, Node<T> node) {
+    private OccurenceNode contains(T element, NodeTree<T> node) {
         if (node == null) {
-            System.out.println("No hay palabras en el archivo");
+            return null;
         }
         else {
             int compareResult = element.compareTo(node.element);
             if (compareResult < 0) {
-                this.contains(element, node.left);
-            }
-            else if (compareResult > 0){
-                this.contains(element, node.right);
-            }
-            else {
-                OccurenceNode current = node.getOccurencelist().getHead();
-                while (current != null) {
-                    System.out.println(current.getOccurence());
-                    current = current.getNext();
-                }
+                return this.contains(element, node.left);
+            } else if (compareResult > 0) {
+                return this.contains(element, node.right);
+            } else {
+                return node.getOccurencelist().getHead();
             }
         }
     }
 }
+
+

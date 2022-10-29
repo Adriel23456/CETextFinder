@@ -5,13 +5,20 @@ import CETextFinder.EstructurasDeDatos.ArbolBinario.BinaryTree;
 import CETextFinder.EstructurasDeDatos.ArbolBinario.OccurenceList;
 import CETextFinder.EstructurasDeDatos.ArbolBinario.OccurenceNode;
 
-import java.io.DataInputStream;
-import java.io.DataOutputStream;
+import java.io.*;
 import java.net.Socket;
+import java.util.List;
+
+import org.apache.pdfbox.pdmodel.PDDocument;
+import org.apache.pdfbox.text.PDFTextStripper;
+import org.apache.pdfbox.text.PDFTextStripperByArea;
+
+import org.apache.poi.xwpf.usermodel.XWPFDocument;
+import org.apache.poi.xwpf.usermodel.XWPFParagraph;
 
 public class Application {
-    public static void main(String[] args){
-        //new Application();
+    public static void main(String[] args) throws IOException {
+        /*new Application();
         OccurenceList A = new OccurenceList(); //PRUEBAS
         // AGREGAMOS LOS DATOS QUE QUERAMOS, NOTA EL RADIXSORT SOLO FUNCIONA CON NUMEROS
         A.addOccurence("2");
@@ -35,7 +42,185 @@ public class Application {
             System.out.println(current.getOccurence());
             current = current.getNext();
         }
+         */
+        BinaryTree A = new BinaryTree<>();
+        BinaryTree B = new BinaryTree<>();
+        BinaryTree C = new BinaryTree<>();
+        System.out.println("Docx; Encontrar palabra: si");
+        ReadDocx(A);
+        ShowDocx(A,"si");
+        System.out.println("");
+        System.out.println("PDF; Encontrar palabra: es");
+        ReadPDF(B);
+        ShowPDF(B,"es");
+        System.out.println("");
+        System.out.println("Txt; Encontrar palabra: Estoy");
+        Readtxt(C);
+        Showtxt(C,"Estoy");
     }
+
+    public static void Readtxt(BinaryTree A){
+        BufferedReader br;
+        File file = new File("C:\\Users\\Jose Maria Vindas\\Desktop\\Prueba.txt");
+        try {
+            br = new BufferedReader(new FileReader(file));
+            String line = br.readLine();
+            int i = 0;
+            while (line != null) {
+                String[] Posi = line.split("\\s", -1);
+                for (int j = 0; j < Posi.length; j++) {
+                    String Value = String.valueOf(i) + "," + String.valueOf(j);
+                    A.insert(Posi[j], Value);
+                }
+                i++;
+                line = br.readLine();
+            }
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+    public static void Showtxt(BinaryTree A, String Element){
+        BufferedReader br;
+        File file = new File("C:\\Users\\Jose Maria Vindas\\Desktop\\Prueba.txt");
+        try {
+            OccurenceNode current = A.contains(Element);
+            String Position = null;
+            while (current != null){
+                if (Position == null){
+                    Position = current.getOccurence();
+                }
+                else{
+                    Position = Position + ";" + current.getOccurence();
+                }
+                current = current.getNext();
+            }
+            String[] Position2 = Position.split(";",-1);
+            br = new BufferedReader(new FileReader(file));
+            String line = br.readLine();
+            System.out.println(Position);
+            int a = 0;
+            while (line != null) {
+                for (int i = 0; i < Position2.length; i++) {
+                    String[] Position3 = Position2[i].split(",", -1);
+                    if (a == Integer.parseInt(Position3[0])) {
+                        System.out.println(line.replaceAll(Element,Element.toUpperCase()));
+                    }
+                }
+                line = br.readLine();
+                a++;
+            }
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+    public static void ReadPDF(BinaryTree A) throws IOException {
+        PDDocument document = PDDocument.load(new File("C:\\Users\\Jose Maria Vindas\\Desktop\\Prueba.pdf"));
+        if (!document.isEncrypted()) {
+            PDFTextStripper stripper = new PDFTextStripper();
+            String text = stripper.getText(document);
+            String[] Position1 = text.split("\\n", -1);
+            for (int i = 0; i < Position1.length; i++) {
+                String[] Position2 = Position1[i].split("\\s", -1);
+                for (int j = 0; j < Position2.length; j++) {
+                    String Value = String.valueOf(i) + "," + String.valueOf(j);
+                    A.insert(Position2[j], Value);
+                }
+            }
+        }
+        document.close();
+    }
+    public static void ShowPDF(BinaryTree A, String Element) throws IOException {
+        PDDocument document = PDDocument.load(new File("C:\\Users\\Jose Maria Vindas\\Desktop\\Prueba.pdf"));
+        if (!document.isEncrypted()) {
+            PDFTextStripper stripper = new PDFTextStripper();
+            String text = stripper.getText(document);
+            String[] Position1 = text.split("\\n", -1);
+
+            OccurenceNode current = A.contains(Element);
+            String Position = null;
+            while (current != null){
+                if (Position == null){
+                    Position = current.getOccurence();
+                }
+                else{
+                    Position = Position + ";" + current.getOccurence();
+                }
+                current = current.getNext();
+            }
+            String[] Position2 = Position.split(";",-1);
+            for (int i = 0; i < Position1.length; i++) {
+                for (int j = 0; j < Position2.length; j++)
+                {
+                    String[] Position3 = Position2[j].split(",", -1);
+                    if (i == Integer.parseInt(Position3[0])) {
+                        System.out.println(Position1[i].replaceAll(Element, Element.toUpperCase()));
+                    }
+                }
+            }
+            }
+        document.close();
+        }
+    public static void ReadDocx(BinaryTree A) {
+        try {
+            FileInputStream fis = new FileInputStream("C:\\Users\\Jose Maria Vindas\\Desktop\\Prueba.docx");
+
+            XWPFDocument document = new XWPFDocument(fis);
+
+            List<XWPFParagraph> paragraphs = document.getParagraphs();
+            int i = 0;
+            for (XWPFParagraph para : paragraphs) {
+                String[] Position = para.getText().split("\\s",-1);
+                for (int j = 0; j < Position.length;j++)
+                {
+                    String Value = String.valueOf(i) + "," + String.valueOf(j);
+                    A.insert(Position[j],Value);
+                }
+                i++;
+            }
+            fis.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    public static void ShowDocx(BinaryTree A, String Element) {
+        try {
+            FileInputStream fis = new FileInputStream("C:\\Users\\Jose Maria Vindas\\Desktop\\Prueba.docx");
+            XWPFDocument document = new XWPFDocument(fis);
+            List<XWPFParagraph> paragraphs = document.getParagraphs();
+
+
+            OccurenceNode current = A.contains(Element);
+            String Position = null;
+            while (current != null){
+                if (Position == null){
+                    Position = current.getOccurence();
+                }
+                else{
+                    Position = Position + ";" + current.getOccurence();
+                }
+                current = current.getNext();
+            }
+            String[] Position1 = Position.split(";",-1);
+            int i = 0;
+            for (XWPFParagraph para : paragraphs) {
+                for (int j = 0; j < Position1.length; j++)
+                {
+                    String[] Position2 = Position1[j].split(",",-1);
+                    if (i == Integer.parseInt(Position2[0])) {
+                        System.out.println(para.getText().replaceAll(Element, Element.toUpperCase()));
+                    }
+                }
+                i++;
+            }
+            fis.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+
     public static OccurenceNode getElement(OccurenceList list, int i){
         OccurenceNode current = list.getHead();
         for (int a = 0; a < i; a++)
