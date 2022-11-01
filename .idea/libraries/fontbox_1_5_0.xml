@@ -1,0 +1,16 @@
+<component name="libraryTable">
+  <library name="fontbox-1.5.0">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../fontbox-1.5.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../org-apache-commons-logging.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../pdfbox-1.2.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../poi-3.12/poi-3.12-20150511.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../poi-3.12/poi-ooxml-3.12-20150511.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../poi-3.12/poi-ooxml-schemas-3.12-20150511.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../poi-3.12/poi-scratchpad-3.12-20150511.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../poi-3.12/ooxml-lib/xmlbeans-2.6.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
