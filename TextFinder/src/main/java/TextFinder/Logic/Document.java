@@ -13,6 +13,18 @@ public class Document {
     private int BST_Search;
     private int AVL_Search;
 
+    /**
+     * Contructor de la clase de Document para cuando se poseen variables definidas
+     * @param name
+     * @param type
+     * @param date
+     * @param link
+     * @param text1
+     * @param text2
+     * @param posiciones
+     * @param BST_Search
+     * @param AVL_Search
+     */
     public Document(String name, String type, String date, String link, String text1, String text2, DoubleLinkedList<Integer> posiciones, int BST_Search, int AVL_Search) {
         this.name = name;
         this.type = type;
@@ -25,6 +37,9 @@ public class Document {
         this.AVL_Search = AVL_Search;
     }
 
+    /**
+     * Contructor para documentos nuevos
+     */
     public Document(){
         this.name = "";
         this.type = "";
@@ -35,20 +50,6 @@ public class Document {
         this.posiciones = new DoubleLinkedList<>();
         this.BST_Search = 0;
         this.AVL_Search = 0;
-    }
-
-    @Override
-    public String toString(){
-        return "Document{" +
-                "name = " + name + '\'' +
-                "type = " + type + '\'' +
-                "date = " + date + '\'' +
-                "link = " + link + '\'' +
-                "text1 = " + text1 + '\'' +
-                "text2 = " + text2 + '\'' +
-                "posiciones = " + posiciones.getNumberOfElements() + '\'' +
-                "BST = " + BST_Search + '\'' +
-                "AVL = " + AVL_Search + '}';
     }
 
     public String getName() {return name;}

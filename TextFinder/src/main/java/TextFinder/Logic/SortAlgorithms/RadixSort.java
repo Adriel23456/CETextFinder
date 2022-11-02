@@ -7,6 +7,11 @@ public class RadixSort {
     private static int length;
     private static String[] links;
 
+    /**
+     * Llamado principal del código de RadixSort
+     * @param array
+     * @param array2
+     */
     public static void radixSort(int array[], String array2[]) {
         if (array == null || array.length == 0) {
             return;
@@ -17,6 +22,12 @@ public class RadixSort {
         radixsort(array, length);
     }
 
+    /**
+     * Funciona para obtener el valor máximo del arreglo
+     * @param arr
+     * @param n
+     * @return
+     */
     // A utility function to get maximum value in arr[]
     static int getMax(int arr[], int n)
     {
@@ -27,6 +38,12 @@ public class RadixSort {
         return mx;
     }
 
+    /**
+     * Funcion que desarrollar la cuenta de dígitos y toda la lógica del RadixSort
+     * @param arr
+     * @param n
+     * @param exp
+     */
     // A function to do counting sort of arr[] according to
     // the digit represented by exp.
     static void countSort(int arr[], int n, int exp)
@@ -68,6 +85,11 @@ public class RadixSort {
         links = arr2;
     }
 
+    /**
+     * Funcion principal de RadixSort
+     * @param arr
+     * @param n
+     */
     // The main function to that sorts arr[] of
     // size n using Radix Sort
     static void radixsort(int arr[], int n)

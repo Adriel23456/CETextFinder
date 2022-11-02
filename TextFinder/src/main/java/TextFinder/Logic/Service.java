@@ -35,6 +35,10 @@ public class Service {
     private static Service instance;
     static CETextFinder data = CETextFinder.instance();
 
+    /**
+     * Método que provoca que service sea una clase singleton y genera su única instancia
+     * @return
+     */
     public static Service instance(){
         if (instance == null ){
             instance = new Service();
@@ -42,6 +46,11 @@ public class Service {
         return instance;
     }
 
+    /**
+     * Metodo para buscar un documento
+     * @param filtro
+     * @return
+     */
     public DoubleLinkedList<Document> documentSearch(String filtro){
         DoubleLinkedList<Document> Lista = new DoubleLinkedList<>();
         for (int i = 0; i< Application.controller_primary.getModel().getLista().getNumberOfElements(); i++){
@@ -54,6 +63,10 @@ public class Service {
         return Lista;
     }
 
+    /**
+     * Metodo para borrar un documento
+     * @param document
+     */
     public void deleteDocument(Document document){
         for (int i = 0; i< data.getDocuments().getNumberOfElements(); i++){
             if(data.getDocuments().getElement(i).getName().equals(document.getName())){
@@ -67,6 +80,12 @@ public class Service {
         }
     }
 
+    /**
+     * Metodo para seleccionar un documento en base a su nombre y tipo
+     * @param name
+     * @param type
+     * @return
+     */
     public static Document documentGet(String name, String type){
         for (int i = 0; i<data.getDocuments().getNumberOfElements(); i++){
             if(data.getDocuments().getElement(i).getName().equals(name)){
@@ -78,6 +97,10 @@ public class Service {
         return null;
     }
 
+    /**
+     * Metodo para actualizar los documentos
+     * @param link
+     */
     public static void updateDocument(String link){
         for (int i = 0; i<data.getDocuments().getNumberOfElements(); i++){
             if(data.getDocuments().getElement(i).getLink().equals(link)){
@@ -91,6 +114,10 @@ public class Service {
         }
     }
 
+    /**
+     * Metodo para añadir documentos pero de forma silenciosa
+     * @param link
+     */
     public void updateDocument2(String link){
         int a = link.lastIndexOf("\\");
         int b = link.lastIndexOf(".");
@@ -143,6 +170,10 @@ public class Service {
     }
 
 
+    /**
+     * Metodo para añadir documentos e indicarselo al usuario
+     * @param link
+     */
     public void addDocument(String link) {
         int a = link.lastIndexOf("\\");
         int b = link.lastIndexOf(".");
@@ -194,6 +225,10 @@ public class Service {
         }
     }
 
+    /**
+     * Metodo para añadir documentos que se repetira por cada adicion, por ende se saco como un codigo constante
+     * @param newdocument
+     */
     public void addDocumentRedundant(Document newdocument){
         if (revisarDocument(newdocument) == TRUE){
             data.getDocuments().add(newdocument);
@@ -205,6 +240,10 @@ public class Service {
         }
     }
 
+    /**
+     * Metodo para añadir documentos que se repetira por cada adicion, por ende se saco como un codigo constante
+     * @param newdocument
+     */
     public void addDocumentRedundant2(Document newdocument){
         if (revisarDocument(newdocument) == TRUE){
             data.getDocuments().add(newdocument);
@@ -214,6 +253,11 @@ public class Service {
         }
     }
 
+    /**
+     * Metodo que revisa si un documento se puede añadir o no
+     * @param newdocument
+     * @return
+     */
     public boolean revisarDocument(Document newdocument){
         for (int i = 0; i<data.getDocuments().getNumberOfElements(); i++){
             if (data.getDocuments().getElement(i).getName().equals(newdocument.getName())){
@@ -225,6 +269,9 @@ public class Service {
         return TRUE;
     }
 
+    /**
+     * Metodo para añadir los documentos y crear los árboles
+     */
     public void loadDocuments(){
         data.setAVL_Trees(new DoubleLinkedList<>());
         data.setBST_Trees(new DoubleLinkedList<>());
@@ -243,11 +290,18 @@ public class Service {
         JOptionPane.showMessageDialog(null,"Se añadieron correctamente los árboles");
     }
 
+    /**
+     * Metodo que limpia los árboles del documento
+     */
     public void setTrees(){
         data.setAVL_Trees(new DoubleLinkedList<>());
         data.setBST_Trees(new DoubleLinkedList<>());
     }
 
+    /**
+     * Metodo para buscar por palabras en un documento (Se aplica búsqueda en ambos árboles, pero solamente se sacan las coincidencias del árbol BST)
+     * @param frase
+     */
     public void searchWords(String frase){
         for (int i = 0; i<data.getDocuments().getNumberOfElements(); i++){
             int comparacionesBST = 0;
@@ -279,6 +333,13 @@ public class Service {
         }
     }
 
+    /**
+     * Metodo que permite obtener una lista de las coincidencias en desorden de la búsqueda por frases de un documento
+     * @param Buscar1
+     * @param Frase
+     * @param Position
+     * @return
+     */
     public static DoubleLinkedList<Integer> searchF(String[] Buscar1, String[] Frase, String[] Position){
         String Result = null;
 
@@ -320,6 +381,11 @@ public class Service {
         }
     }
 
+    /**
+     * Metodo que busca por frase en todos los documentos (Se aplica búsqueda en ambos árboles, pero solamente se sacan
+     * las coincidencias del árbol BST y también se limpian están coincidencias en el método searchF())
+     * @param frase
+     */
     public void searchPhrase(String frase){
         searchWords(frase);
 
@@ -351,6 +417,11 @@ public class Service {
         }
     }
 
+    /**
+     * Método para ordenar por nombres los archivos del programa
+     * @param links
+     * @return
+     */
     public static DoubleLinkedList<String> nameSort(DoubleLinkedList<String> links){
         String [] linksArray = new String [links.getNumberOfElements()];
         String [] namesArray = new String [links.getNumberOfElements()];
@@ -377,6 +448,12 @@ public class Service {
     }
 
 
+    /**
+     * Metodo para ordenar por cantidad de palabras los archivos del programa
+     * @param links
+     * @param texts
+     * @return
+     */
     public static DoubleLinkedList<String> wordsSort(DoubleLinkedList<String> links, DoubleLinkedList<String> texts){
         String [] linksArray = new String [links.getNumberOfElements()];
         int [] numberOfWords = new int [links.getNumberOfElements()];
@@ -405,6 +482,12 @@ public class Service {
     }
 
 
+    /**
+     * Metodo para ordenar por fechas los archivos del programa
+     * @param links
+     * @param dates
+     * @return
+     */
     public static DoubleLinkedList<String> dateSort(DoubleLinkedList<String> links, DoubleLinkedList<String> dates){
         String [] linksArray = new String [links.getNumberOfElements()];
         int [] datesArray = new int [links.getNumberOfElements()];
@@ -435,6 +518,12 @@ public class Service {
         return newlist;
     }
 
+    /**
+     * Metodo que desarrolla el texto que se mostrara en la aplicación, después de realizar la búsqueda
+     * @param text
+     * @param positions
+     * @return
+     */
     public static String Subrayar(String text, DoubleLinkedList<Integer> positions) {
 
         DoubleLinkedList<Integer> newPositions = new DoubleLinkedList<>();

@@ -9,6 +9,11 @@ public class BubbleSort {
     private static int length;
     private static String[] links;
 
+    /**
+     * El llamado principal del código de BubbleSort que se desea aplicar
+     * @param array
+     * @param array2
+     */
     public static void bubbleSort(int array[], String array2[]) {
         if (array == null || array.length == 0) {
             return;
@@ -20,6 +25,7 @@ public class BubbleSort {
     }
 
     /**
+     * Código que aplica la lógica de BubbleSort
      * @Author Rajat Mishra
      * @param arr
      * @param n
@@ -41,15 +47,6 @@ public class BubbleSort {
         }
         links = arr2;
         dates = arr;
-    }
-
-    /* Prints the array */
-    public static void printArray(int arr[])
-    {
-        int n = arr.length;
-        for (int i = 0; i < n; ++i)
-            System.out.print(arr[i] + " ");
-        System.out.println();
     }
 
     public static int[] getDates() {return dates;}

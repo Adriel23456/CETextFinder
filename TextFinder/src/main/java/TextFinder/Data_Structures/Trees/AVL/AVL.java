@@ -13,6 +13,10 @@ public class AVL<T extends Comparable<T>> {
         root = null;
     }
 
+    /**
+     * Metodo para obtener el valor maximo del arbol
+     * @return
+     */
     public T Maximum() {
         AVLNode<T> local = root;
         if (local == null)
@@ -22,6 +26,10 @@ public class AVL<T extends Comparable<T>> {
         return local.getData();
     }
 
+    /**
+     * Metodo para obtener el valor minimo del arbol
+     * @return
+     */
     public T Minimum() {
         AVLNode<T> local = root;
         if (local == null)
@@ -32,12 +40,23 @@ public class AVL<T extends Comparable<T>> {
         return local.getData();
     }
 
+    /**
+     * Metodo para obtener el nivel de un nodo
+     * @param node
+     * @return
+     */
     private int depth(AVLNode<T> node) {
         if (node == null)
             return 0;
         return node.getDepth();
     }
 
+    /**
+     * Método para insertar
+     * @param data
+     * @param number
+     * @return
+     */
     public AVLNode<T> insert(T data, int number) {
         root = insert(root, data, number);
         switch (balanceNumber(root)) {
@@ -53,6 +72,13 @@ public class AVL<T extends Comparable<T>> {
         return root;
     }
 
+    /**
+     * Método para insertar un nodo en el arbol AVL
+     * @param node
+     * @param data
+     * @param number
+     * @return
+     */
     public AVLNode<T> insert(AVLNode<T> node, T data, int number) {
         if (node == null)
             return new AVLNode<T>(data, number);
@@ -79,6 +105,11 @@ public class AVL<T extends Comparable<T>> {
         return node;
     }
 
+    /**
+     * Metodo para balancear un nodo
+     * @param node
+     * @return
+     */
     private int balanceNumber(AVLNode<T> node) {
         int L = depth(node.getLeft());
         int R = depth(node.getRight());
@@ -89,6 +120,12 @@ public class AVL<T extends Comparable<T>> {
         return 0;
     }
 
+    /**
+     * Metodo de rotacion simple hacia la izquierda
+     * @param node
+     * @param number
+     * @return
+     */
     private AVLNode<T> rotateLeft(AVLNode<T> node, int number) {
         AVLNode<T> q = node;
         AVLNode<T> p = q.getRight();
@@ -100,6 +137,12 @@ public class AVL<T extends Comparable<T>> {
         return p;
     }
 
+    /**
+     * Metodo de rotacion simple hacia la derecha
+     * @param node
+     * @param number
+     * @return
+     */
     private AVLNode<T> rotateRight(AVLNode<T> node, int number) {
         AVLNode<T> q = node;
         AVLNode<T> p = q.getLeft();
@@ -111,6 +154,11 @@ public class AVL<T extends Comparable<T>> {
         return p;
     }
 
+    /**
+     * Metodo para buscar un nodo y obtener el numero de comparaciones que se realizaron para encontrarlo
+     * @param data
+     * @return
+     */
     public int search(T data) {
         AVLNode<T> local = root;
         int comparaciones = 0;
@@ -131,10 +179,17 @@ public class AVL<T extends Comparable<T>> {
         return comparaciones;
     }
 
+    /**
+     * Método para imprimir un nodo
+     * @return
+     */
     public String toString() {
         return root.toString();
     }
 
+    /**
+     * Método para imprimir el árbol AVL
+     */
     public void PrintTree() {
         root.level = 0;
         Queue<AVLNode<T>> queue = new LinkedList<AVLNode<T>>();

@@ -16,21 +16,38 @@ public class Controller_Show {
         view.setModel(model);
     }
 
+    /**
+     * Método que aplica Client-Server puesto que se desarrollara en otra sección de código
+     * Método para abrir un archivo en una posición específica
+     * @param link
+     */
     public void openFile(String link){
         File file = new File(link);
-        Desktop desktop = Desktop.getDesktop();
-        try {
-            Robot robot = new Robot();
-            robot.mouseMove(950,550);
-            desktop.open(file);
-            robot.delay(2000);
-            robot.mousePress(InputEvent.BUTTON1_MASK);
-            robot.mouseRelease(InputEvent.BUTTON1_MASK);
-            robot.mouseWheel(5);
-        } catch (IOException ex) {
-            throw new RuntimeException(ex);
-        } catch (AWTException ex) {
-            throw new RuntimeException(ex);
+        if (model.current_document.getType().equals("txt")){
+            Desktop desktop = Desktop.getDesktop();
+            try {
+                System.out.println("Se abrió un documento TXT");
+                desktop.open(file);
+            } catch (IOException ex) {
+                throw new RuntimeException(ex);
+            }
+        } else if (model.current_document.getType().equals("docx")) {
+            Desktop desktop = Desktop.getDesktop();
+            try {
+                System.out.println("Se abrió un documento DOCX");
+                desktop.open(file);
+            } catch (IOException ex) {
+                throw new RuntimeException(ex);
+            }
+        }
+        else{
+            Desktop desktop = Desktop.getDesktop();
+            try {
+                System.out.println("Se abrió un documento PDF");
+                desktop.open(file);
+            } catch (IOException ex) {
+                throw new RuntimeException(ex);
+            }
         }
     }
     public View_Show getView() {return view;}
