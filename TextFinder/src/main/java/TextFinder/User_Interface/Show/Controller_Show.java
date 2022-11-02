@@ -1,5 +1,7 @@
 package TextFinder.User_Interface.Show;
 
+import TextFinder.Application;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.InputEvent;
@@ -10,9 +12,11 @@ import java.io.IOException;
 public class Controller_Show {
     View_Show view;
     Model_Show model;
+    Boolean searchWords;
     public Controller_Show(View_Show view, Model_Show model) {
         this.view = view;
         this.model = model;
+        this.searchWords = true;
         view.setController(this);
         view.setModel(model);
     }
@@ -28,15 +32,18 @@ public class Controller_Show {
             Desktop desktop = Desktop.getDesktop();
             try {
                 desktop.open(file);
-                String text = model.current_document.getText1();
-                String[] words = text.split("[ \\n(/)\"\t\\t\n,?.!]+");
-                int p;
-                for (p = 0; p < words.length; p++) {
-                    if (p == model.getCurrent_document().getPosiciones().getElement(0)) {
-                        break;
-                    }
+                String Palabra = "";
+                if (model.getCurrent_document().getPosiciones().getNumberOfElements() == 0){
                 }
-                String Palabra = words[p];
+                else if (searchWords){
+                    String text = Application.controller_primary.getView().getSearchField().getText();
+                    String[] word = text.split("[ \\n(/)\"\t\\t\n,?.!]+");
+                    Palabra = word[0];
+                }
+                else {
+                    String text2 = Application.controller_primary.getView().getSearchField().getText();
+                    Palabra = text2;
+                }
                 char[] CharPalabra = Palabra.toCharArray();
                 Robot robot = new Robot();
                 robot.delay(1000);
@@ -63,15 +70,18 @@ public class Controller_Show {
             Desktop desktop = Desktop.getDesktop();
             try {
                 desktop.open(file);
-                String text = model.current_document.getText1();
-                String[] words = text.split("[ \\n(/)\"\t\\t\n,?.!]+");
-                int p;
-                for (p = 0; p < words.length; p++) {
-                    if (p == model.getCurrent_document().getPosiciones().getElement(0)) {
-                        break;
-                    }
+                String Palabra = "";
+                if (model.getCurrent_document().getPosiciones().getNumberOfElements() == 0){
                 }
-                String Palabra = words[p];
+                else if (searchWords){
+                    String text = Application.controller_primary.getView().getSearchField().getText();
+                    String[] word = text.split("[ \\n(/)\"\t\\t\n,?.!]+");
+                    Palabra = word[0];
+                }
+                else {
+                    String text2 = Application.controller_primary.getView().getSearchField().getText();
+                    Palabra = text2;
+                }
                 char[] CharPalabra = Palabra.toCharArray();
                 Robot robot = new Robot();
                 robot.delay(1500);
@@ -97,18 +107,19 @@ public class Controller_Show {
         else{
             Desktop desktop = Desktop.getDesktop();
             try {
-                System.out.println("Se abrió un documento PDF");
                 desktop.open(file);
-                String text = model.current_document.getText1();
-                String[] words = text.split("[ \\n(/)\"\t\\t\n,?.!]+");
-                int p;
-                for (p = 0; p < words.length; p++) {
-                    if (p == model.getCurrent_document().getPosiciones().getElement(0)) {
-                        break;
-                    }
+                String Palabra = "";
+                if (model.getCurrent_document().getPosiciones().getNumberOfElements() == 0){
                 }
-                System.out.println(words[p]);
-                String Palabra = words[p];
+                else if (searchWords){
+                    String text = Application.controller_primary.getView().getSearchField().getText();
+                    String[] word = text.split("[ \\n(/)\"\t\\t\n,?.!]+");
+                    Palabra = word[0];
+                }
+                else {
+                    String text2 = Application.controller_primary.getView().getSearchField().getText();
+                    Palabra = text2;
+                }
                 char[] CharPalabra = Palabra.toCharArray();
                 Robot robot = new Robot();
                 robot.delay(2000);
@@ -134,4 +145,12 @@ public class Controller_Show {
     public void setView(View_Show view) {this.view = view;}
     public Model_Show getModel() {return model;}
     public void setModel(Model_Show model) {this.model = model;}
+
+    public Boolean getSearchWords() {
+        return searchWords;
+    }
+
+    public void setSearchWords(Boolean searchWords) {
+        this.searchWords = searchWords;
+    }
 }

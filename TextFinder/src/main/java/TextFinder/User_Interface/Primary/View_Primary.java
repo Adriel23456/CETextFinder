@@ -225,6 +225,7 @@ public class View_Primary implements Observer {
                 if (CETextFinder.getAVL_Trees() == null | CETextFinder.getBST_Trees() == null){
                 } else if (CETextFinder.getAVL_Trees().getNumberOfElements() == 0 | CETextFinder.getBST_Trees().getNumberOfElements() == 0) {
                 } else{
+                    Application.controller_show.setSearchWords(true);
                     String searchfield = getSearchField().getText();
                     controller.searchWord(searchfield);
                 }
@@ -236,6 +237,7 @@ public class View_Primary implements Observer {
                 if (CETextFinder.getAVL_Trees() == null | CETextFinder.getBST_Trees() == null){
                 } else if (CETextFinder.getAVL_Trees().getNumberOfElements() == 0 | CETextFinder.getBST_Trees().getNumberOfElements() == 0) {
                 } else{
+                    Application.controller_show.setSearchWords(false);
                     String searchfield = getSearchField().getText();
                     if (searchfield.split("[ \\n(/)\"\t\\t\n,?.!]+").length != 0){
                         controller.searchPhrase(searchfield);

@@ -12,8 +12,6 @@ import TextFinder.User_Interface.Tabbedpane.View_Tabbedpane;
 import javax.sound.sampled.LineUnavailableException;
 import javax.swing.*;
 import java.io.IOException;
-import java.io.InputStream;
-import java.util.Scanner;
 
 public class Application {
     public static JFrame window;
@@ -61,7 +59,8 @@ public class Application {
         /**
          * Se establece la visibilidad de la ventana y se inicia la aplicación
          */
-        window.setVisible(true);
+        boolean b = true;
+        window.setVisible(b);
         controller_main.show();
     }
 }

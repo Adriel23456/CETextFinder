@@ -520,6 +520,9 @@ public class Service {
         //Voy a ordenar este array aplicando un codigo que ya habia hecho...
         BubbleSort.bubbleSort(arrayPosiciones, ejemplo);
         arrayPosiciones = BubbleSort.getDates();
+
+        String trueWords = "";
+
         for (int p = 0; p < arrayPosiciones.length; p++){
             newPositions.add(arrayPosiciones[p]);
         }
@@ -540,6 +543,7 @@ public class Service {
             }
             else{
                 currentNumber = currentNumber + 1;
+                trueWords = trueWords + currentword + " ";
                 newtext = newtext + "<font color=\"red\">"+currentword+"</font>" + " ";
             }
         }
