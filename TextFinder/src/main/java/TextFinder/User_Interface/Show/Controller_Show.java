@@ -60,6 +60,8 @@ public class Controller_Show {
                 robot.keyRelease(KeyEvent.VK_ENTER);
                 robot.keyPress(KeyEvent.VK_ESCAPE);
                 robot.keyRelease(KeyEvent.VK_ESCAPE);
+                robot.keyPress(KeyEvent.VK_ESCAPE);
+                robot.keyRelease(KeyEvent.VK_ESCAPE);
             } catch (IOException ex) {
                 throw new RuntimeException(ex);
             } catch (AWTException e) {
