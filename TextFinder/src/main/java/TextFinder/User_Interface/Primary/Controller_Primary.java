@@ -72,11 +72,12 @@ public class Controller_Primary {
 
     public static void searchWord(String searchField){
         Service.instance().searchWords(searchField);
+        JOptionPane.showMessageDialog(null,"Se termino el proceso de búsqueda para todos los documentos");
     }
 
-    public static void searchPhrase(){
-        String hola = "Hola";
-        Service.instance().searchPhrase(hola);
+    public static void searchPhrase(String text){
+        Service.instance().searchPhrase(text);
+        JOptionPane.showMessageDialog(null,"Se termino el proceso de búsqueda para todos los documentos");
     }
 
     public View_Primary getView() {return view;}

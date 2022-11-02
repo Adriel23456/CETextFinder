@@ -233,10 +233,15 @@ public class View_Primary implements Observer {
         searchPhraseButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (CETextFinder.getAVL_Trees().getNumberOfElements() == 0 | CETextFinder.getBST_Trees().getNumberOfElements() == 0){
-                }
-                else{
-                    controller.searchPhrase();
+                if (CETextFinder.getAVL_Trees() == null | CETextFinder.getBST_Trees() == null){
+                } else if (CETextFinder.getAVL_Trees().getNumberOfElements() == 0 | CETextFinder.getBST_Trees().getNumberOfElements() == 0) {
+                } else{
+                    String searchfield = getSearchField().getText();
+                    if (searchfield.split("[ \\n(/)\"\t\\t\n,?.!]+").length != 0){
+                        controller.searchPhrase(searchfield);
+                    }
+                    else {
+                    }
                 }
             }
         });

@@ -4,6 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.InputEvent;
 import java.io.File;
 import java.io.IOException;
 import java.util.Observable;
@@ -28,30 +29,7 @@ public class View_Show implements Observer {
                     JOptionPane.showMessageDialog(null,"Favor Seleccionar un archivo");
                 }
                 else{
-                    File file = new File(model.current_document.getLink());
-                    if (model.current_document.getType().equals("txt")){
-                        Desktop desktop = Desktop.getDesktop();
-                        try {
-                            desktop.open(file);
-                        } catch (IOException ex) {
-                            throw new RuntimeException(ex);
-                        }
-                    } else if (model.current_document.getType().equals("docx")) {
-                        Desktop desktop = Desktop.getDesktop();
-                        try {
-                            desktop.open(file);
-                        } catch (IOException ex) {
-                            throw new RuntimeException(ex);
-                        }
-                    }
-                    else{
-                        Desktop desktop = Desktop.getDesktop();
-                        try {
-                            desktop.open(file);
-                        } catch (IOException ex) {
-                            throw new RuntimeException(ex);
-                        }
-                    }
+                    controller.openFile(model.current_document.getLink());
                 }
             }
         });

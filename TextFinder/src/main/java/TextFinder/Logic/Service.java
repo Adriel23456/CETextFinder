@@ -277,13 +277,78 @@ public class Service {
             }
             //System.out.println("Se encontraron las siguientes posiciones por archivo: "+ data.getDocuments().getElement(i).getPosiciones());
         }
-        JOptionPane.showMessageDialog(null,"Se termino el proceso de búsqueda para todos los documentos");
+    }
+
+    public static DoubleLinkedList<Integer> searchF(String[] Buscar1, String[] Frase, String[] Position){
+        String Result = null;
+
+        DoubleLinkedList<Integer> list = new DoubleLinkedList<>();
+
+        int i = 0;
+
+        for (String posi: Position) {
+            int j = 0;
+            for (String busca : Buscar1) {
+                if (Integer.parseInt(posi)+i-1 < Frase.length && Frase[Integer.parseInt(posi)+i-1].equals(busca))
+                {
+                    j++;
+                }
+                i++;
+            }
+            if (j == Buscar1.length){
+                for (int a=-1;a<Buscar1.length - 1;a++) {
+                    if (Result == null) {
+                        Result = String.valueOf(Integer.parseInt(posi) + a);
+                    }
+                    else{
+                        Result = Result + "," +String.valueOf(Integer.parseInt(posi) + a);
+                    }
+
+                }
+            }
+            i = 0;
+        }
+        if (Result == null){
+            return list;
+        }
+        else{
+            String result[] = Result.split("[ \\n(/)\"\t\\t\n,?.!]+");
+            for (int t = 0; t < result.length; t++){
+                list.add(Integer.valueOf(result[t]));
+            }
+            return list;
+        }
     }
 
     public void searchPhrase(String frase){
-        //VA A PROVOCAR QUE TODOS LOS ARCHIVOS TENGAN EN SU LISTA DE POSICIONES TODAS LAS COINCIDENCIAS ENCONTRADAS...
         searchWords(frase);
-        //Se intentará que solamente permanezcan las coincidencias en donde en una posición inicial (i) hasta una posición final (j) se reproduzcan coincidencias constantes...
+
+        //Se convierte a arreglo la frase que se desea revisar
+        String word[] = frase.split("[ \\n(/)\"\t\\t\n,?.!]+");
+
+        //Me moveré, documento por documento...
+        for (int i = 0; i<data.getDocuments().getNumberOfElements(); i++){
+            DoubleLinkedList<Integer> list = new DoubleLinkedList<>();
+
+            //Se convierte a arreglo el texto del documento actual:
+            String text = data.getDocuments().getElement(i).getText1();
+            String word2[] = text.split("[ \\n(/)\"\t\\t\n,?.!]+");
+
+            String[] posiciones = new String[data.getDocuments().getElement(i).getPosiciones().getNumberOfElements()];
+            for (int m = 0; m < posiciones.length; m++){
+                posiciones[m] = String.valueOf(data.getDocuments().getElement(i).getPosiciones().getElement(m));
+            }
+            list = searchF(word,word2,posiciones);
+
+            data.getDocuments().getElement(i).setPosiciones(list);
+            //Una vez establecido la nueva lista de Integer de las posiciones de coincidencias, se resetea el texto...
+            if (data.getDocuments().getElement(i).getPosiciones().getNumberOfElements() != 0){
+                data.getDocuments().getElement(i).setText2(Subrayar(data.getDocuments().getElement(i).getText1(), data.getDocuments().getElement(i).getPosiciones()));
+            }
+            else{
+                data.getDocuments().getElement(i).setText2(data.getDocuments().getElement(i).getText1());
+            }
+        }
     }
 
     public static DoubleLinkedList<String> nameSort(DoubleLinkedList<String> links){
@@ -371,53 +436,41 @@ public class Service {
     }
 
     public static String Subrayar(String text, DoubleLinkedList<Integer> positions) {
-        String new_str = "";
-        String word = "";
+
+        DoubleLinkedList<Integer> newPositions = new DoubleLinkedList<>();
+        int[] arrayPosiciones = new int[positions.getNumberOfElements()];
+        String[] ejemplo = new String[positions.getNumberOfElements()];
+
+        //Se imprime la lista de posiciones que se encontraron...
+        for (int a = 0; a < positions.getNumberOfElements(); a++){
+            arrayPosiciones[a] = positions.getElement(a);
+        }
+        //Voy a ordenar este array aplicando un codigo que ya habia hecho...
+        BubbleSort.bubbleSort(arrayPosiciones, ejemplo);
+        arrayPosiciones = BubbleSort.getDates();
+        for (int p = 0; p < arrayPosiciones.length; p++){
+            newPositions.add(arrayPosiciones[p]);
+        }
+
         String msg[] = text.split("[ \\n(/)\"\t\\t\n,?.!]+");
-        int currentnumber;
-        DoubleLinkedList<String> wordsSearched = new DoubleLinkedList<>();
-        for (int t = 0; t < positions.getNumberOfElements(); t++){
-            currentnumber = positions.getElement(t);
-            for (int i = 0; i < msg.length; i++){
-                if (currentnumber == i){
-                    word = msg[i];
-                    break;
-                }
+        String newtext = "";
+        int currentNumber = 0;
+
+        for (int a = 0; a < msg.length; a++){
+            String currentword = msg[a];
+            if (currentNumber == newPositions.getNumberOfElements()) {
+                // Concat the word not equal to the given word
+                newtext = newtext + currentword + " ";
             }
-            //Revisar si la palabra a buscar esta repetida o no...
-            if (wordsSearched.getNumberOfElements() == 0){
-                // Iterating the string using for each loop
-                for (String currentword : msg) {
-                    // If desired word is found
-                    if (!currentword.equals(word)) {
-                        // Concat the word not equal to the given word
-                        new_str = new_str + currentword + " ";
-                    }
-                    else{
-                        new_str = new_str + "<font color=\"red\">"+currentword+"</font>" + " ";
-                    }
-                }
-                wordsSearched.add(word);
+            else if (a != newPositions.getElement(currentNumber)) {
+                // Concat the word not equal to the given word
+                newtext = newtext + currentword + " ";
             }
-            for (int h = 0; h < wordsSearched.getNumberOfElements(); h++){
-                if (wordsSearched.getElement(h).equals(word)){
-                }
-                else{
-                    // Iterating the string using for each loop
-                    for (String currentword : msg) {
-                        // If desired word is found
-                        if (!currentword.equals(word)) {
-                            // Concat the word not equal to the given word
-                            new_str = new_str + currentword + " ";
-                        }
-                        else{
-                            new_str = new_str + "<font color=\"red\">"+currentword+"</font>" + " ";
-                        }
-                    }
-                    wordsSearched.add(word);
-                }
+            else{
+                currentNumber = currentNumber + 1;
+                newtext = newtext + "<font color=\"red\">"+currentword+"</font>" + " ";
             }
         }
-        return new_str;
+        return newtext;
     }
 }
