@@ -26,6 +26,7 @@ import java.nio.file.attribute.BasicFileAttributes;
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
 
 import static java.lang.Boolean.FALSE;
 import static java.lang.Boolean.TRUE;
@@ -268,11 +269,12 @@ public class Service {
             //Se terminó de repasar las palabras que se deseaban buscar...
             data.getDocuments().getElement(i).setAVL_Search(comparacionesAVL);
             data.getDocuments().getElement(i).setBST_Search(comparacionesBST);
-
-
-            data.getDocuments().getElement(i).setText2(data.getDocuments().getElement(i).getText1());
-
-
+            if (data.getDocuments().getElement(i).getPosiciones().getNumberOfElements() != 0){
+                data.getDocuments().getElement(i).setText2(Subrayar(data.getDocuments().getElement(i).getText1(), data.getDocuments().getElement(i).getPosiciones()));
+            }
+            else{
+                data.getDocuments().getElement(i).setText2(data.getDocuments().getElement(i).getText1());
+            }
             //System.out.println("Se encontraron las siguientes posiciones por archivo: "+ data.getDocuments().getElement(i).getPosiciones());
         }
         JOptionPane.showMessageDialog(null,"Se termino el proceso de búsqueda para todos los documentos");
@@ -366,5 +368,56 @@ public class Service {
             newlist.add(linksArray[i]);
         }
         return newlist;
+    }
+
+    public static String Subrayar(String text, DoubleLinkedList<Integer> positions) {
+        String new_str = "";
+        String word = "";
+        String msg[] = text.split("[ \\n(/)\"\t\\t\n,?.!]+");
+        int currentnumber;
+        DoubleLinkedList<String> wordsSearched = new DoubleLinkedList<>();
+        for (int t = 0; t < positions.getNumberOfElements(); t++){
+            currentnumber = positions.getElement(t);
+            for (int i = 0; i < msg.length; i++){
+                if (currentnumber == i){
+                    word = msg[i];
+                    break;
+                }
+            }
+            //Revisar si la palabra a buscar esta repetida o no...
+            if (wordsSearched.getNumberOfElements() == 0){
+                // Iterating the string using for each loop
+                for (String currentword : msg) {
+                    // If desired word is found
+                    if (!currentword.equals(word)) {
+                        // Concat the word not equal to the given word
+                        new_str = new_str + currentword + " ";
+                    }
+                    else{
+                        new_str = new_str + "<font color=\"red\">"+currentword+"</font>" + " ";
+                    }
+                }
+                wordsSearched.add(word);
+            }
+            for (int h = 0; h < wordsSearched.getNumberOfElements(); h++){
+                if (wordsSearched.getElement(h).equals(word)){
+                }
+                else{
+                    // Iterating the string using for each loop
+                    for (String currentword : msg) {
+                        // If desired word is found
+                        if (!currentword.equals(word)) {
+                            // Concat the word not equal to the given word
+                            new_str = new_str + currentword + " ";
+                        }
+                        else{
+                            new_str = new_str + "<font color=\"red\">"+currentword+"</font>" + " ";
+                        }
+                    }
+                    wordsSearched.add(word);
+                }
+            }
+        }
+        return new_str;
     }
 }

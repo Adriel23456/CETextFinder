@@ -16,10 +16,11 @@ public class View_Show implements Observer {
     private JLabel documentName;
     private JLabel numberBST;
     private JLabel numberAVL;
-    private JTextArea documentText;
+    private JEditorPane documentText;
     private JButton openButton;
 
     public View_Show() {
+        documentText.setContentType("text/html");
         openButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -72,5 +73,5 @@ public class View_Show implements Observer {
     public JLabel getNumberBST() {return numberBST;}
     public JLabel getNumberAVL() {return numberAVL;}
     public JButton getOpenButton() {return openButton;}
-    public JTextArea getDocumentText() {return documentText;}
+    public JEditorPane getDocumentText() {return documentText;}
 }

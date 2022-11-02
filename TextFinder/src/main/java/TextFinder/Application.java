@@ -21,9 +21,6 @@ public class Application {
     public static Controller_Show controller_show;
     public static Controller_Tabbedpane controller_main;
 
-    static Scanner scanner = new Scanner(System.in);   //Scanner object to read user input
-    InputStream input;
-
     public static void main(String[] args) throws IOException, LineUnavailableException{
         /**
          * Se establece la ventana principal

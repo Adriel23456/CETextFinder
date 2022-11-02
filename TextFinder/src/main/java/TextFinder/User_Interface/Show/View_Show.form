@@ -89,11 +89,10 @@
                 <properties/>
                 <border type="none"/>
                 <children>
-                  <component id="da772" class="javax.swing.JTextArea" binding="documentText">
+                  <component id="7050" class="javax.swing.JEditorPane" binding="documentText">
                     <constraints/>
                     <properties>
                       <editable value="false"/>
-                      <enabled value="true"/>
                     </properties>
                   </component>
                 </children>
