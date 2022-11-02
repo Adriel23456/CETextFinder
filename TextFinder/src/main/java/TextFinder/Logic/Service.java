@@ -47,23 +47,6 @@ public class Service {
     }
 
     /**
-     * Metodo para buscar un documento
-     * @param filtro
-     * @return
-     */
-    public DoubleLinkedList<Document> documentSearch(String filtro){
-        DoubleLinkedList<Document> Lista = new DoubleLinkedList<>();
-        for (int i = 0; i< Application.controller_primary.getModel().getLista().getNumberOfElements(); i++){
-            if(filtro.equals(Application.controller_primary.getModel().getLista().getElement(i).getName())){
-                Lista.add(Application.controller_primary.getModel().getLista().getElement(i));
-            } else if (filtro.equals("")) {
-                Lista.add(Application.controller_primary.getModel().getLista().getElement(i));
-            }
-        }
-        return Lista;
-    }
-
-    /**
      * Metodo para borrar un documento
      * @param document
      */
@@ -315,9 +298,9 @@ public class Service {
                     for (int f=0;f<list.getNumberOfElements(); f++){
                         int currentNumber = list.getElement(f);
                         data.getDocuments().getElement(i).getPosiciones().add(currentNumber);
-                        comparacionesBST = comparacionesBST + data.getBST_Trees().getElement(i).obtainComparaciones(word[y]);
-                        comparacionesAVL = comparacionesAVL + data.getAVL_Trees().getElement(i).search(word[y]);
                     }
+                    comparacionesBST = comparacionesBST + data.getBST_Trees().getElement(i).obtainComparaciones(word[y]);
+                    comparacionesAVL = comparacionesAVL + data.getAVL_Trees().getElement(i).search(word[y]);
                 }
             }
             //Se terminó de repasar las palabras que se deseaban buscar...
